@@ -18,6 +18,7 @@ const post = async () => {
         text: `<!subteam^${process.env.PING}> ` + (Math.random() < 0.05 ? quotes[Math.floor(Math.random() * quotes.length)] : new Array(Math.floor(Math.random() * 40 + 10)).fill(0).map(() => letters[Math.floor(Math.random() * letters.length)]).join(""))
     });
 };
-cron.schedule("0 9 * * *", post);
-cron.schedule("0 15 * * *", post);
-cron.schedule("0 21 * * *", post);
+const postDelayed = () => setTimeout(post, Math.floor(Math.random() * 1000 * 60 * 120));
+cron.schedule("0 9 * * *", postDelayed);
+cron.schedule("0 15 * * *", postDelayed);
+cron.schedule("0 21 * * *", postDelayed);

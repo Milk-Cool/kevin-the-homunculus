@@ -18,7 +18,6 @@ const post = async () => {
         text: `<!subteam^${process.env.PING}> ` + (Math.random() < 0.05 ? quotes[Math.floor(Math.random() * quotes.length)] : new Array(Math.floor(Math.random() * 40 + 10)).fill(0).map(() => letters[Math.floor(Math.random() * letters.length)]).join(""))
     });
 };
-post();
 cron.schedule("0 9 * * *", post);
 cron.schedule("0 15 * * *", post);
 cron.schedule("0 21 * * *", post);
